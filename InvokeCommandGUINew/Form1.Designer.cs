@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.loadServer = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.serverList = new System.Windows.Forms.ListBox();
@@ -37,6 +38,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.progressLabel = new System.Windows.Forms.RichTextBox();
             this.outputLabel = new System.Windows.Forms.TextBox();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // loadServer
@@ -103,6 +105,7 @@
             // 
             // progressLabel
             // 
+            this.progressLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.progressLabel.Location = new System.Drawing.Point(16, 271);
             this.progressLabel.Name = "progressLabel";
             this.progressLabel.ReadOnly = true;
@@ -112,17 +115,29 @@
             // 
             // outputLabel
             // 
+            this.outputLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.outputLabel.Location = new System.Drawing.Point(16, 449);
             this.outputLabel.Name = "outputLabel";
             this.outputLabel.ReadOnly = true;
-            this.outputLabel.Size = new System.Drawing.Size(1126, 26);
+            this.outputLabel.Size = new System.Drawing.Size(1126, 28);
             this.outputLabel.TabIndex = 9;
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(898, 9);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(209, 20);
+            this.linkLabel1.TabIndex = 10;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "pr_prakash78@outlook.com";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1173, 501);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.outputLabel);
             this.Controls.Add(this.progressLabel);
             this.Controls.Add(this.label2);
@@ -132,10 +147,11 @@
             this.Controls.Add(this.serverList);
             this.Controls.Add(this.loadServer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.Text = "Invoke-Command GUI pr_prakash78@outlook.com";
+            this.Text = "Invoke-Command GUI prakash78blog.wordpress.com";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -153,6 +169,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RichTextBox progressLabel;
         private System.Windows.Forms.TextBox outputLabel;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
 

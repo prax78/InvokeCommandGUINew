@@ -41,8 +41,7 @@ namespace InvokeCommandGUINew
             {
                 rs.Open();
 
-
-
+                
                 PSDataCollection<PSObject> jobCol = new PSDataCollection<PSObject>();
                 PSDataCollection<PSObject> checkjobCol = new PSDataCollection<PSObject>();
 
