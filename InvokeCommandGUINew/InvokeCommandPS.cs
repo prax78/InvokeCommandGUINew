@@ -35,9 +35,9 @@ namespace InvokeCommandGUINew
 
 
 
-
-
-            using (Runspace rs = RunspaceFactory.CreateRunspace())
+            InitialSessionState iss = InitialSessionState.CreateDefault();
+            
+            using (Runspace rs = RunspaceFactory.CreateRunspace(iss))
             {
                 rs.Open();
 
