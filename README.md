@@ -4,6 +4,7 @@
     can track the progress of the same using simple GUI window.
         Download the Zip https://github.com/prax78/InvokeCommandGUINew/blob/master/InvokeCommandGUINew.zip or you can fork the code and modify it for your need :)
             ** How to run it!!
+            
                     1 Load your server list
                     2 Copy your script in a script block
                     3 Hit Invoke button
