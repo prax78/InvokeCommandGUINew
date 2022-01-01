@@ -15,7 +15,7 @@ namespace InvokeCommandGUINew
 
 
 
-        public static  void InvokePSCommand(String[] computers, string username, string password, string scriptblock, string outputfile)
+        public static  async void InvokePSCommand(String[] computers, string username, string password, string scriptblock, string outputfile)
         {
             int TotJob = 0;
             int CompltdJob = 0;
@@ -72,6 +72,7 @@ namespace InvokeCommandGUINew
                 
                 while(true)
                 {
+                    updateProgressLabelGUI(TotJob, CompltdJob, FailJob, BlJob, DiscJob, RunJob, StopJob, true);
 
                     CompltdJob = jobCol.Where(x => x.Members["JobStateInfo"].Value.ToString() == "Completed").Count();
                     FailJob = jobCol.Where(x => x.Members["JobStateInfo"].Value.ToString() == "Failed").Count();
@@ -81,21 +82,22 @@ namespace InvokeCommandGUINew
                     StopJob = jobCol.Where(x => x.Members["JobStateInfo"].Value.ToString() == "Stopped").Count();
                     
 
-                    updateProgressLabelGUI(TotJob, CompltdJob, FailJob, BlJob, DiscJob, RunJob, StopJob,true);
-
+                    
                     if (!jobCol.Any(s => s.Members["JobStateInfo"].Value.ToString() == "Running"))
+                        
                         break;
                 }
+                System.Threading.Thread.Sleep(3000);
+
                 FailJob = jobCol.Where(x => x.Members["JobStateInfo"].Value.ToString() == "Failed").Count();
                 BlJob = jobCol.Where(x => x.Members["JobStateInfo"].Value.ToString() == "Blocked").Count();
                 DiscJob = jobCol.Where(x => x.Members["JobStateInfo"].Value.ToString() == "Disconnected").Count();
                 RunJob = jobCol.Where(x => x.Members["JobStateInfo"].Value.ToString() == "Running").Count();
                 StopJob = jobCol.Where(x => x.Members["JobStateInfo"].Value.ToString() == "Stopped").Count();
                 CompltdJob = jobCol.Where(x => x.Members["JobStateInfo"].Value.ToString() == "Completed").Count();
-                System.Threading.Thread.Sleep(2000);
+                
                 updateProgressLabelGUI(TotJob, CompltdJob, FailJob, BlJob, DiscJob, RunJob, StopJob, false);
 
-                System.Threading.Thread.Sleep(3000);
 
 
                 foreach (var job in jobCol)
@@ -143,7 +145,14 @@ namespace InvokeCommandGUINew
 
         private static void updateProgressLabelGUI(int tJob,int cJob,int fJob, int bJob, int dJob,int rJob, int sJob,bool color)
         {
-
+            int compJob = cJob;
+            int totJob = tJob;
+            int failJob = fJob;
+            int dicJOb = dJob;
+            int blckJob = bJob;
+            int runJob = rJob;
+            int stopJob = sJob;
+    
             var richTextbox = System.Windows.Forms.Form.ActiveForm.Controls.Find("progressLabel",false);
             foreach(var control in richTextbox)
             {
@@ -152,12 +161,14 @@ namespace InvokeCommandGUINew
                     if (color)
                     {
                         r.BackColor = System.Drawing.Color.LightYellow;
-                        r.Text = $"Total {cJob}/{tJob} Jobs Completed\nTotal {fJob} Jobs Failed\nTotal {bJob} Blocked\nTotal {dJob} Jobs Disconnected\nTotal {rJob} Jobs Running\nTotal {sJob} Jobs Stopped";
+                        r.Text = $"Total {compJob}/{totJob} Jobs Completed\nTotal {failJob} Jobs Failed\nTotal {blckJob} Blocked\nTotal {dicJOb} Jobs Disconnected\nTotal {runJob} Jobs Running\nTotal {stopJob} Jobs Stopped";
 
                     }
                     else
                     {
                         r.BackColor = System.Drawing.Color.OrangeRed;
+                        r.Text = $"Total {compJob}/{totJob} Jobs Completed\nTotal {failJob} Jobs Failed\nTotal {blckJob} Blocked\nTotal {dicJOb} Jobs Disconnected\nTotal {runJob} Jobs Running\nTotal {stopJob} Jobs Stopped";
+
                     }
 
                 }));
