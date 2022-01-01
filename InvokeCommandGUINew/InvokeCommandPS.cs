@@ -119,6 +119,8 @@ namespace InvokeCommandGUINew
                         {
                             WriteOutputFile(outputfile, $"{j}");
                             WriteOutputFile(outputfile, Environment.NewLine);
+                            WriteOutputFile(outputfile, "===========================================");
+                            WriteOutputFile(outputfile, Environment.NewLine);
 
                         }
                     }
