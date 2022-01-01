@@ -4,7 +4,7 @@
     can track the progress of the same using simple GUI window.
         Download the Zip https://github.com/prax78/InvokeCommandGUINew/blob/master/InvokeCommandGUINew.zip or you can fork the code and modify it for your need :)
         
-        https://prakash78blog.wordpress.com/2022/01/01/invoke-command-gui-helper-tool/
+   https://prakash78blog.wordpress.com/2022/01/01/invoke-command-gui-helper-tool/
            
            ** How to run it!!
             
