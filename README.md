@@ -7,7 +7,7 @@
    https://prakash78blog.wordpress.com/2022/01/01/invoke-command-gui-helper-tool/
            
            ** How to run it!!
-             ** Please download ASP.NET runtime first https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-aspnetcore-6.0.7-windows-x86-installer [Reboot not required]
+             
                     1 Load your server list
                     2 Copy your script in a script block
                     3 Hit Invoke button
